@@ -5,6 +5,9 @@ import json, os
 =======
 import json
 import sender_new, sender_exit, sender_persisting
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
 from housepy import config, log
 from twitter import Twitter, OAuth
@@ -36,7 +39,10 @@ persisting_ids = list(set(current_ids) - set(new_ids))
 log.debug(json.dumps({'new_ids': new_ids, 'exit_ids': exit_ids, 'persisting_ids': persisting_ids}, indent=4))
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> FETCH_HEAD
 # do the thing
 for id in new_ids:
     sender_new.send(id)     # add try/except?
@@ -45,6 +51,9 @@ for id in exit_ids:
 for id in persisting_ids:    
     sender_persisting.send(id)
 
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
 # save followers
 with open('followers.txt', 'w') as f:
