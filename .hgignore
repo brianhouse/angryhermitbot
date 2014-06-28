@@ -4,3 +4,4 @@ syntax: glob
 config.yaml
 logs
 housepy
+followers.txt
