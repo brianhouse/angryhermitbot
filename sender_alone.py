@@ -7,6 +7,4 @@ def send(t):
             messages.append(line.strip()[:140])
 
     if random.random() < 1/144:
-        t.tweet(random.choice(message))     # fix me!
-
-
+        t.statuses.update(status=random.choice(message))
