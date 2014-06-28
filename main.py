@@ -3,10 +3,9 @@
 import json, os
 import sender_new, sender_exit, sender_persisting
 from housepy import config, log
-from twitter import Twitter, OAuth
+from tweeter import t
 
 # initialize Twitter and retrieve followers
-t = Twitter(auth=OAuth(config['twitter']['access_token'], config['twitter']['access_token_secret'], config['twitter']['consumer_key'], config['twitter']['consumer_secret']))
 try:
     result = t.followers.ids(screen_name="angryhermitbot")
 except Exception as e:
@@ -17,7 +16,7 @@ current_ids = result['ids']
 # we are so happy
 if not len(current_ids):
     log.info("No followers! So happy.")
-    sender_alone.send(t)
+    sender_alone.send()
     exit()
 
 # sort followers

@@ -1,10 +1,7 @@
-import random
+import random, util
+from tweeter import t
 
-def send(t):
-    messages = []
-    with open('messages/alone.txt', 'r') as f:
-        for line in f.readlines():
-            messages.append(line.strip()[:140])
-
+def send():
+    messages = util.get_message('messages/alone.txt')
     if random.random() < 1/144:
         t.statuses.update(status=random.choice(message))
