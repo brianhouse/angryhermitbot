@@ -3,3 +3,4 @@ config.yaml
 logs
 housepy
 followers.txt
+__pycache__
