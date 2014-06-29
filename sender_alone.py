@@ -2,6 +2,7 @@ import random, util
 from tweeter import t
 
 def send():
-    messages = util.get_message('messages/alone.txt')
-    if random.random() < 1/144:
+    if random.random() < (1/288) * 2:
+        message = util.get_message('messages/alone.txt')
+        log.info("Sending \"%s\"" % message)            
         t.statuses.update(status=message)

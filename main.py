@@ -31,14 +31,14 @@ persisting_ids = list(set(current_ids) - set(new_ids))
 log.debug(json.dumps({'new_ids': new_ids, 'exit_ids': exit_ids, 'persisting_ids': persisting_ids}, indent=4))
 
 # do the thing
-for id in new_ids:
-    sender_new.send(id)     # add try/except?
-for id in exit_ids:
-    sender_exit.send(id)
-for id in persisting_ids:    
-    sender_persisting.send(id)
+for user_id in new_ids:
+    sender_new.send(user_id)     # add try/except?
+for user_id in exit_ids:
+    sender_exit.send(user_id)
+for user_id in persisting_ids:    
+    sender_persisting.send(user_id)
 
 # save followers
 with open('followers.txt', 'w') as f:
-    for id in (new_ids + persisting_ids):
-        f.write("%s\n" % id)
+    for user_id in (new_ids + persisting_ids):
+        f.write("%s\n" % user_id)
