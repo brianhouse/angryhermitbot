@@ -4,7 +4,7 @@ from tweeter import t
 
 def send(id):
     user = t.users.show(user_id=id)
-    print(json.dumps(user, indent=4))
+    # print(json.dumps(user, indent=4))
     # user['screen_name']
     # user['followers_count']
     # user['entities']['url']['urls'][0]['expanded_url']
