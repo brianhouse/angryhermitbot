@@ -9,11 +9,11 @@ def send(user_id):
     user = t.users.show(user_id=user_id)
     message = message.replace("SCREENNAME", user['screen_name'])
     message = message.replace("FOLLOWERS", str(user['followers_count']))
-    try:
+    \
         message = message.replace("HOMEPAGE", user['entities']['url']['urls'][0]['expanded_url'])
     except IndexError as e:
         return
-    log.info("Sending \"%s\"" % message)    
+    log.info("Sending \"%s\"" % message)
     # t.statuses.update(status=message)
 
     # print(json.dumps(user, indent=4))
@@ -27,4 +27,3 @@ if __name__ == "__main__":
     t = Twitter(auth=OAuth(config['twitter']['access_token'], config['twitter']['access_token_secret'], config['twitter']['consumer_key'], config['twitter']['consumer_secret']))
     user_id = 5452482
     send(t, user_id)
-    
