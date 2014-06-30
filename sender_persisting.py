@@ -3,7 +3,7 @@ from housepy import config, log
 from tweeter import t
 
 def send(user_id):
-    # if not (random.random() < (1/288) * 10):
+     if not (random.random() < (1/288) * 3):
     #     return
     message = util.get_message('messages/persisting.txt')
     user = t.users.show(user_id=user_id)
