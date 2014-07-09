@@ -6,3 +6,4 @@ logs
 housepy
 followers.txt
 __pycache__
+*.pem
