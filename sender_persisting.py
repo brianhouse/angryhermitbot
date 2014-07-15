@@ -5,16 +5,19 @@ from tweeter import t
 def send(user_id):
     if not (random.random() < (1/288) * 5):
         return
-    message = util.get_message('messages/persisting.txt')
-    user = t.users.show(user_id=user_id)
-    message = message.replace("SCREENNAME", user['screen_name'])
-    message = message.replace("FOLLOWERS", str(user['followers_count']))
     try:
-        message = message.replace("HOMEPAGE", user['entities']['url']['urls'][0]['expanded_url'])
-    except IndexError as e:
-        return
-    log.info("Sending \"%s\"" % message)
-    t.statuses.update(status=message)
+        message = util.get_message('messages/persisting.txt')
+        user = t.users.show(user_id=user_id)
+        message = message.replace("SCREENNAME", user['screen_name'])
+        message = message.replace("FOLLOWERS", str(user['followers_count']))
+        try:
+            message = message.replace("HOMEPAGE", user['entities']['url']['urls'][0]['expanded_url'])
+        except IndexError:
+            return
+        log.info("Sending \"%s\"" % message)
+        t.statuses.update(status=message)
+    except Exception as e:
+        log.error(log.exc(e))
 
 if __name__ == "__main__":
     from twitter import Twitter, OAuth

@@ -1,1 +1,1 @@
-ssh -i scripts/overhear.pem ubuntu@54.235.200.47
+ssh -i scripts/angryhermitbot.pem ubuntu@54.235.200.47
