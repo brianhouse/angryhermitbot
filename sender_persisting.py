@@ -9,10 +9,11 @@ def send(user_id):
     user = t.users.show(user_id=user_id)
     message = message.replace("SCREENNAME", user['screen_name'])
     message = message.replace("FOLLOWERS", str(user['followers_count']))
-    try:
-        message = message.replace("HOMEPAGE", user['entities']['url']['urls'][0]['expanded_url'])
-    except IndexError as e:
-        return
+    if "HOMEPAGE" in message:
+        try:
+            message = message.replace("HOMEPAGE", user['entities']['url']['urls'][0]['expanded_url'])
+        except IndexError as e:
+            return
     log.info("Sending \"%s\"" % message)
     t.statuses.update(status=message)
 
