@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import json, os
-import sender_new, sender_exit, sender_persisting
+import sender_new, sender_exit, sender_persisting, sender_alone
 from housepy import config, log
 from tweeter import t
 
